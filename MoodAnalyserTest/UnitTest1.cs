@@ -1,9 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UC4_Using_Reflection_MoodAnalyser;
+using UC5_UsingParameterized_MoodAnalyser;
 
-namespace UC4_Using_Reflection_MoodAnalyser_Test
+namespace UC5_UsingParameterized_MoodAnalyzer
 {
-
     [TestClass]
     public class UnitTest1
     {
@@ -73,6 +72,29 @@ namespace UC4_Using_Reflection_MoodAnalyser_Test
         {
             object expected = new MoodAnalyser();
             Assert.ThrowsException<MoodAnalyserException>(() => MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser1.Mood", "Mood"));
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
+        {
+            object expected = new MoodAnalyser("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser1.MoodAnalyser", "MoodAnalyser", "SAD");
+            expected.Equals(obj);
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_Improper_ShouldThrow_NO_SUCH_CLASS_Exception_UsingParameterizedConstructor()
+        {
+            object expected = new MoodAnalyser("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser1.MoodAnalyser", "MoodAnalyser", "SAD");
+            Assert.ThrowsException<MoodAnalyserException>(() => MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser1.Mood", "MoodAnalyser", "SAD"));
+
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseConstructorName_Improper_ShouldThrow_NO_SUCH_METHOD_Exception_UsingParameterizedConstructor()
+        {
+            object expected = new MoodAnalyser("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser1.MoodAnalyser", "MoodAnalyser", "SAD");
+            Assert.ThrowsException<MoodAnalyserException>(() => MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser1.MoodAnalyser", "Mood", "SAD"));
+
         }
     }
 }

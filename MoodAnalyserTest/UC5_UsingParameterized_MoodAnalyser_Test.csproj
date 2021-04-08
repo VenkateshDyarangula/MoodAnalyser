@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UC4_Using_Reflection_MoodAnalyser\UC4_Using_Reflection_MoodAnalyser.csproj" />
+    <ProjectReference Include="..\UC5_UsingParameterized_MoodAnalyser\UC5_UsingParameterized_MoodAnalyser.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC4_Using_Reflection_MoodAnalyser
+namespace UC5_UsingParameterized_MoodAnalyser
 {
     public class MoodAnalyserException : Exception
     {
@@ -16,7 +16,7 @@ namespace UC4_Using_Reflection_MoodAnalyser
             OBJECT_CREATION_ISSUE
         }
         private readonly ExceptionType type;
-        public MoodAnalyserException(ExceptionType Type, string message) : base(message)
+        public MoodAnalyserException(ExceptionType Type, String message) : base(message)
         {
             this.type = Type;
         }

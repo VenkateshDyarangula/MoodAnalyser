@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC4_Using_Reflection_MoodAnalyser
+namespace UC5_UsingParameterized_MoodAnalyser
 {
     public class MoodAnalyser
     {
@@ -42,7 +42,7 @@ namespace UC4_Using_Reflection_MoodAnalyser
                 {
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
                 }
-                if (this.message.Equals(string.Empty))
+                if (this.message.Equals(String.Empty))
                 {
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
 
