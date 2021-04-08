@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UC2_HandleException;
+using UC3_InvalidMood;
 
-namespace UC2_HandleException_Test
+namespace UC3_InvalidMood_Test
 {
     [TestClass]
     public class UnitTest1
@@ -9,8 +9,8 @@ namespace UC2_HandleException_Test
         [TestMethod]
         public void whenMood_IsSad_ShouldReturnSad()
         {
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string mood = moodAnalyser.analyseMood("I am in sad Mood");
+            MoodAnalyser moodAnalyser = new MoodAnalyser(); 
+            string mood = moodAnalyser.analyseMood("I am in sad Mood"); 
             Assert.AreEqual("SAD", mood);
         }
         [TestMethod]
@@ -42,6 +42,17 @@ namespace UC2_HandleException_Test
             string mood = moodAnalyser.analyseMood(null);
             Assert.AreEqual("HAPPY", mood);
         }
-
+        [TestMethod]
+        public void whenMood_IsNull_ShouldReturn_CustomException_WithExceptionType()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+            Assert.ThrowsException<MoodAnalyserException>(() => moodAnalyser.analyseMood());
+        }
+        [TestMethod]
+        public void whenMood_IsEmpty_ShouldReturn_CustomException_WithExceptionType()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("");
+            Assert.ThrowsException<MoodAnalyserException>(() => moodAnalyser.analyseMood());
+        }
     }
 }

@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC2_HandleException
+namespace UC3_InvalidMood
 {
-        public class MoodAnalyserException : Exception
+    public class MoodAnalyserException : Exception
+    {
+        public  enum ExceptionType
         {
-            public enum ExceptionType
-            {
-                NULL_MESSAGE,
-                EMPTY_MESSAGE,
-                NO_SUCH_FIELD,
-                NO_SUCH_METHOD,
-                NO_SUCH_CLASS,
-                OBJECT_CREATION_ISSUE
-            }
-            private readonly ExceptionType type;
-            public MoodAnalyserException(ExceptionType Type, String message) : base(message)
-            {
-                this.type = Type;
-            }   
-       } 
+            NULL_MESSAGE,
+            EMPTY_MESSAGE,
+            NO_SUCH_FIELD,
+            NO_SUCH_METHOD,
+            NO_SUCH_CLASS,
+            OBJECT_CREATION_ISSUE
+        }
+        private readonly ExceptionType type;
+        public MoodAnalyserException(ExceptionType Type, string message) //: base(message)
+        {
+            this.type = Type;
+        }
+    }
 }

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UC2_HandleException\UC2_HandleException.csproj" />
+    <ProjectReference Include="..\UC3_InvalidModd\UC3_InvalidMood.csproj" />
   </ItemGroup>
 
 </Project>
