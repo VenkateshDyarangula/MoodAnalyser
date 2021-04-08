@@ -1,15 +1,17 @@
 ﻿using System;
-using UC1_Mood_Analyser;
 
-namespace UC1_Mood_Analyser
+namespace UC2_HandleException
 {
     class Program
     {
         static void Main(string[] args)
         {
-            MoodAnalyser mood = new MoodAnalyser();
-            String result=mood.analyseMood("I am in Happy Mood"); //or Sad
-            Console.WriteLine(result);
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+            string mood = moodAnalyser.analyseMood("I am in sad Mood"); //UC1.1
+            Console.WriteLine(mood);
+            /// string mood2 = moodAnalyser.analyseMood();
+            ///Console.WriteLine(mood2);
+            
         }
     }
 }

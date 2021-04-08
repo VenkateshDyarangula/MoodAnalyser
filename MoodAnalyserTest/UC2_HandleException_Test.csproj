@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mood Analyzer\Mood Analyzer.csproj" />
+    <ProjectReference Include="..\UC2_HandleException\UC2_HandleException.csproj" />
   </ItemGroup>
 
 </Project>

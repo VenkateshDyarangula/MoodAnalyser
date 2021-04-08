@@ -1,17 +1,47 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mood_Analyser;
-namespace UC1_MoodAnalyser_Test
+using UC2_HandleException;
+
+namespace UC2_HandleException_Test
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void whenMood_IsSad_ShouldReturnSad()
         {
-            string expected = "HAPPY";
-            MoodAnalyser moodanalyser = new MoodAnalyser("I am in any mood");
-            string result = moodanalyser.analyseMood("I am in Happy Mood");
-            Assert.AreEqual(expected, result);
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string mood = moodAnalyser.analyseMood("I am in sad Mood");
+            Assert.AreEqual("SAD", mood);
         }
+        [TestMethod]
+        public void whenMood_IsHappy_ShouldReturnHappy()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string mood = moodAnalyser.analyseMood("I am in happy Mood");
+            Assert.AreEqual("HAPPY", mood);
+        }
+        [TestMethod]
+        public void Using_Constructor_whenMood_IsSad_ShouldReturnSad()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
+            string mood = moodAnalyser.analyseMood();
+            Assert.AreEqual("SAD", mood);
+        }
+        [TestMethod]
+        public void Using_Constructor_whenMood_IsHappy_ShouldReturnHappy()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
+            string mood = moodAnalyser.analyseMood();
+            Assert.AreEqual("HAPPY", mood);
+        }
+
+        [TestMethod]
+        public void whenMood_IsNull_ShouldReturnHappy()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string mood = moodAnalyser.analyseMood(null);
+            Assert.AreEqual("HAPPY", mood);
+        }
+
     }
 }

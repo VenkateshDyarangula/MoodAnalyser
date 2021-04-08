@@ -2,28 +2,56 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC1_Mood_Analyser
+namespace UC2_HandleException
 {
     public class MoodAnalyser
     {
         private string message;
         public MoodAnalyser()
         {
+
         }
         public MoodAnalyser(string message)
         {
             this.message = message;
         }
+
         public string analyseMood(string message)
         {
-            if (message.Equals("I am in Happy Mood")) //or I am in Sad Mood
+            try
+            {
+                if (message.Equals(null))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
+                }
+                if (message.Equals("I am in sad Mood"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+            catch (NullReferenceException)
             {
                 return "HAPPY";
             }
-            else
+        }
+        public string analyseMood()
+        {
+            try
             {
-                return "SAD";
+                if (message.Equals(null))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
+                }
+                if (message.Equals("I am in sad Mood"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+            catch (NullReferenceException)
+            {
+                  throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
             }
         }
+
     }
 }
