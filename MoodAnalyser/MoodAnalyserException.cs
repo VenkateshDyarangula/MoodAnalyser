@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC5_UsingParameterized_MoodAnalyser
+namespace UC6_Reflection_Invoking_Method
 {
-    public class MoodAnalyserException : Exception
+    class MoodAnalyserException : Exception
     {
         public enum ExceptionType
         {
