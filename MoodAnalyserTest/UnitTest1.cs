@@ -1,16 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UC3_InvalidMood;
+using UC4_Using_Reflection_MoodAnalyser;
 
-namespace UC3_InvalidMood_Test
+namespace UC4_Using_Reflection_MoodAnalyser_Test
 {
+
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
         public void whenMood_IsSad_ShouldReturnSad()
         {
-            MoodAnalyser moodAnalyser = new MoodAnalyser(); 
-            string mood = moodAnalyser.analyseMood("I am in sad Mood"); 
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string mood = moodAnalyser.analyseMood("I am in sad Mood");
             Assert.AreEqual("SAD", mood);
         }
         [TestMethod]
@@ -53,6 +54,25 @@ namespace UC3_InvalidMood_Test
         {
             MoodAnalyser moodAnalyser = new MoodAnalyser("");
             Assert.ThrowsException<MoodAnalyserException>(() => moodAnalyser.analyseMood());
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyserObject()
+        {
+            object expected = new MoodAnalyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser1.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_Improper_ShouldThrow_NO_SUCH_CLASS_Exception()
+        {
+            object expected = new MoodAnalyser();
+            Assert.ThrowsException<MoodAnalyserException>(() => MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser1.Mood", "MoodAnalyser"));
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseConstructorName_Improper_ShouldThrow_NO_SUCH_METHOD_Exception()
+        {
+            object expected = new MoodAnalyser();
+            Assert.ThrowsException<MoodAnalyserException>(() => MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser1.Mood", "Mood"));
         }
     }
 }

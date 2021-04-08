@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UC3_InvalidModd\UC3_InvalidMood.csproj" />
+    <ProjectReference Include="..\UC4_Using_Reflection_MoodAnalyser\UC4_Using_Reflection_MoodAnalyser.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC3_InvalidMood
+namespace UC4_Using_Reflection_MoodAnalyser
 {
     public class MoodAnalyserException : Exception
     {
-        public  enum ExceptionType
+        public enum ExceptionType
         {
             NULL_MESSAGE,
             EMPTY_MESSAGE,
@@ -16,7 +16,7 @@ namespace UC3_InvalidMood
             OBJECT_CREATION_ISSUE
         }
         private readonly ExceptionType type;
-        public MoodAnalyserException(ExceptionType Type, string message) //: base(message)
+        public MoodAnalyserException(ExceptionType Type, string message) : base(message)
         {
             this.type = Type;
         }

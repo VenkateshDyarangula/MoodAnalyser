@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC3_InvalidMood
+namespace UC4_Using_Reflection_MoodAnalyser
 {
     public class MoodAnalyser
     {
-
         private string message;
         public MoodAnalyser()
         {
+
         }
         public MoodAnalyser(string message)
         {
             this.message = message;
         }
+
         public string analyseMood(string message)
         {
             try
@@ -37,21 +38,24 @@ namespace UC3_InvalidMood
         {
             try
             {
+                if (this.message.Equals(null))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
+                }
                 if (this.message.Equals(string.Empty))
                 {
-                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+
                 }
-                if (this.message.Contains("sad"))
+                if (message.Equals("I am in sad Mood"))
                     return "SAD";
                 else
                     return "HAPPY";
             }
             catch (NullReferenceException)
             {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Null");
-                
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood should not be Null");
             }
         }
     }
-
 }

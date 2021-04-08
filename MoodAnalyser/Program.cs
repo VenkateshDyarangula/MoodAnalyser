@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace UC3_InvalidMood
+namespace UC4_Using_Reflection_MoodAnalyser
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-            string mood = moodAnalyser.analyseMood();
-              
-        }
+       public static void Main(string[] args)
+       {
+         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+         string mood = moodAnalyser.analyseMood();
+               
+       }
     }
 }
